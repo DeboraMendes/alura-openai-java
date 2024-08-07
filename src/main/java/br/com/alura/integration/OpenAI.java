@@ -1,20 +1,23 @@
-package br.com.alura;
+package br.com.alura.integration;
 
+import br.com.alura.env.EnvironmentVariable;
 import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 import com.theokanning.openai.completion.chat.ChatMessage;
 import com.theokanning.openai.completion.chat.ChatMessageRole;
 import com.theokanning.openai.service.OpenAiService;
 
+import java.time.Duration;
 import java.util.Arrays;
 
-public class Main {
-    public static void main(String[] args) {
-        var user = "Gere 5 produtos";
-        var system = "Você é um gerador de produtos fictícios para um ecommerce e deve gerar apenas o nome dos produtos solicitados pelo usuário";
+public class OpenAI {
 
-        var token = System.getenv("OPENAI_API_KEY");
+    public static void execute(String user, String system) {
+        var token = EnvironmentVariable.getValue("OPENAI_API_KEY")
+                .orElseThrow(() -> new RuntimeException("API key not provided"));
 
-        var service = new OpenAiService(token);
+        var duration = Integer.parseInt(EnvironmentVariable.getValue("OPENAI_API_DURATION").orElse("30"));
+
+        var service = new OpenAiService(token, Duration.ofSeconds(duration));
 
         var completionRequest = ChatCompletionRequest
                 .builder()
@@ -23,6 +26,7 @@ public class Main {
                         new ChatMessage(ChatMessageRole.USER.value(), user),
                         new ChatMessage(ChatMessageRole.SYSTEM.value(), system)
                 ))
+                .n(1) //número de respostas
                 .build();
 
         service
@@ -30,4 +34,5 @@ public class Main {
                 .getChoices()
                 .forEach(c -> System.out.println(c.getMessage().getContent()));
     }
+
 }

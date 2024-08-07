@@ -8,6 +8,7 @@ Responsible for integrating with OpenAI.
 - [Maven](https://maven.apache.org)
 
 ## Build
+
 ```shell
 cd alura-openai-java
 mvn install
@@ -15,13 +16,15 @@ mvn install
 
 ## Run
 
-`br.com.alura.Main`
+1. `br.com.alura.IntegrationTest`
+2. `br.com.alura.ProductCategorizer`
 
 ## Environment variables
 
-Name | Value
----- | -----
-OPENAI_API_KEY | OpenAI API Key
+ Name                | Value           
+---------------------|-----------------
+ OPENAI_API_KEY      | OpenAI API Key  
+ OPENAI_API_DURATION | OpenAI Duration 
 
 ## Important links
 
@@ -31,3 +34,5 @@ OPENAI_API_KEY | OpenAI API Key
 * [OpenAI | Libraries](https://platform.openai.com/docs/libraries/community-libraries)
 * [OpenAI | Java Library](https://github.com/TheoKanning/openai-java)
 * [OpenAI | API Keys](https://platform.openai.com/api-keys)
+* [OpenAI | Create chat completion](https://platform.openai.com/docs/api-reference/chat/create)
+* [OpenAI | Prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering/prompt-engineering)
