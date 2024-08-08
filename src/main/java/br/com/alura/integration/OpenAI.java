@@ -11,20 +11,24 @@ import java.util.Arrays;
 
 public class OpenAI {
 
-    public static void execute(String user, String system) {
-        var token = EnvironmentVariable.getValue("OPENAI_API_KEY")
-                .orElseThrow(() -> new RuntimeException("API key not provided"));
+    public static void execute(Model model, String user, String system) {
+        System.out.println("Modelo: " + model.getName());
 
-        var duration = Integer.parseInt(EnvironmentVariable.getValue("OPENAI_API_DURATION").orElse("30"));
+        var token = EnvironmentVariable.getOpenAIApiKey();
+
+        var duration = EnvironmentVariable.getOpenAIDuration();
+
+        var maxTokens = EnvironmentVariable.getOpenAIMaxTokens();
 
         var service = new OpenAiService(token, Duration.ofSeconds(duration));
 
         var completionRequest = ChatCompletionRequest
                 .builder()
-                .model("gpt-4")
+                .model(model.getName())
+                .maxTokens(maxTokens) //tamanho máximo de tokens que a resposta gerada pode conter
                 .messages(Arrays.asList(
-                        new ChatMessage(ChatMessageRole.USER.value(), user),
-                        new ChatMessage(ChatMessageRole.SYSTEM.value(), system)
+                        new ChatMessage(ChatMessageRole.SYSTEM.value(), system),
+                        new ChatMessage(ChatMessageRole.USER.value(), user)
                 ))
                 .n(1) //número de respostas
                 .build();

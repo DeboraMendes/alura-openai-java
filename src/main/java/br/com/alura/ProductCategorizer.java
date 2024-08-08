@@ -1,5 +1,6 @@
 package br.com.alura;
 
+import br.com.alura.integration.Model;
 import br.com.alura.integration.OpenAI;
 
 import java.util.Scanner;
@@ -37,7 +38,7 @@ public class ProductCategorizer {
                         Caso o usuário pergunte algo que não seja de categorização de produtos, você deve responder que não pode ajudar pois o seu papel é apenas responder a categoria dos produtos
                         """.formatted(categories);
 
-                OpenAI.execute(user, system);
+                OpenAI.execute(Model.GPT_4, user, system);
             }
 
         } while (!user.equalsIgnoreCase(EXIT_COMMAND));
