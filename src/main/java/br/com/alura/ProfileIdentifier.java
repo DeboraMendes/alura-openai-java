@@ -19,7 +19,7 @@ public class ProfileIdentifier {
                 Cliente - descreva o perfil do cliente em três palavras
                 """;
 
-        var user = FileUtil.loadFromFile("shopping_list _10_customers.csv");
+        var user = FileUtil.loadContent("shopping", "shopping_list _10_customers.csv");
 
         Integer systemCountTokens = TokenUtil.count(model, system);
         Integer userCountTokens = TokenUtil.count(model, user);
@@ -32,7 +32,8 @@ public class ProfileIdentifier {
             model = Model.GPT_3_5_TURBO_16k;
         }
 
-        OpenAI.execute(model, user, system);
+        String response = OpenAI.getResponse(model, system, user);
+        System.out.println(response);
     }
 
 }
