@@ -18,6 +18,8 @@ mvn install
 
 1. `br.com.alura.IntegrationTest`
 2. `br.com.alura.ProductCategorizer`
+3. `br.com.alura.TokenTest`
+3. `br.com.alura.ProfileIdentifier`
 
 ## Environment variables
 
@@ -32,7 +34,11 @@ mvn install
 * [OpenAI | Docs](https://platform.openai.com/docs/overview)
 * [OpenAI | Api Reference](https://platform.openai.com/docs/api-reference/introduction)
 * [OpenAI | Libraries](https://platform.openai.com/docs/libraries/community-libraries)
-* [OpenAI | Java Library](https://github.com/TheoKanning/openai-java)
+* [GitHub | OpenAI Java Library](https://github.com/TheoKanning/openai-java)
 * [OpenAI | API Keys](https://platform.openai.com/api-keys)
 * [OpenAI | Create chat completion](https://platform.openai.com/docs/api-reference/chat/create)
 * [OpenAI | Prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering/prompt-engineering)
+* [OpenAI | Models](https://platform.openai.com/docs/models)
+* [OpenAI | Pricing](https://openai.com/api/pricing)
+* [OpenAI | Tokenizer tool](https://platform.openai.com/tokenizer)
+* [GitHub | Java Tokenizer Kit](https://github.com/knuddelsgmbh/jtokkit)
