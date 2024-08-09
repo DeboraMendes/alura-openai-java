@@ -13,8 +13,10 @@ public class ProductCategorizer {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite as categorias válidas separadas por vírgula:");
+        //eletrônicos, esportes, alimentação, educação
         String categories = scanner.nextLine();
 
+        //livro
         String user;
 
         do {
@@ -38,7 +40,8 @@ public class ProductCategorizer {
                         Caso o usuário pergunte algo que não seja de categorização de produtos, você deve responder que não pode ajudar pois o seu papel é apenas responder a categoria dos produtos
                         """.formatted(categories);
 
-                OpenAI.execute(Model.GPT_4, user, system);
+                String response = OpenAI.getResponse(Model.GPT_4, system, user);
+                System.out.println(response);
             }
 
         } while (!user.equalsIgnoreCase(EXIT_COMMAND));

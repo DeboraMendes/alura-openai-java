@@ -20,6 +20,7 @@ mvn install
 2. `br.com.alura.ProductCategorizer`
 3. `br.com.alura.TokenTest`
 3. `br.com.alura.ProfileIdentifier`
+3. `br.com.alura.SentimentAnalyzer`
 
 ## Environment variables
 
@@ -42,3 +43,5 @@ mvn install
 * [OpenAI | Pricing](https://openai.com/api/pricing)
 * [OpenAI | Tokenizer tool](https://platform.openai.com/tokenizer)
 * [GitHub | Java Tokenizer Kit](https://github.com/knuddelsgmbh/jtokkit)
+* [OpenAI | Error codes](https://platform.openai.com/docs/guides/error-codes)
+* [OpenAI | Rate limits](https://platform.openai.com/docs/guides/rate-limits?context=tier-free)
